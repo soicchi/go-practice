@@ -20,4 +20,12 @@ func main() {
 		num += 20  // num = num + 20
 		num++  // num + 1
 		num--  // num - 1
+
+		// 比較演算子
+		fmt.Println(1 == 1)  // true
+		fmt.Println(1 == 2)  // false
+		fmt.Println(1 <= 2)  // true
+		fmt.Println(1 >= 2)  // false
+		fmt.Println(1 > 2)  // false
+		fmt.Println(1 < 2)  // true
 }
