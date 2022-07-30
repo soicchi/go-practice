@@ -5,6 +5,12 @@ import (
 		"time"
 )
 
+// init(packageで指定している関数の実行前に実行される)
+func init() {
+		fmt.Println("init")
+}
+
+
 func main() {
 		// 条件分岐
 		a := 1
