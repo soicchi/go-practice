@@ -29,6 +29,46 @@ func Noreturn() {
 		return
 }
 
+
+// クロージャー
+func addNum() func() int {
+		x := 0
+		return func() int {
+				x++
+				return x
+		}
+}
+/*
+		func main() {
+			x := 0
+			addNum := func() int {
+					x++
+					return x
+			}
+			fmt.Println(addNum()) -> 1
+			fmt.Println(addNum()) -> 2
+			fmt.Println(addNum()) -> 3
+			fmt.Println(addNum()) -> 4
+		}
+		上記の定義だとaddNumに代入した関数外なのでxの値を書き換えられる可能性がある
+
+		では変数xを関数内に移動させたらどうか？
+		func main() {
+			addNum := func() int {
+					x := 0
+					x++
+					return x
+			}
+			fmt.Println(addNum()) -> 1
+			fmt.Println(addNum()) -> 1
+			fmt.Println(addNum()) -> 1
+			fmt.Println(addNum()) -> 1
+		}
+		上記では呼出ごとにxが0で初期化されてしまうためうまく動作しない
+
+		ということで関数を定義してその中で変数xを外側に持つ関数を定義すれば良い（上記参照）
+*/
+
 func main() {
 		num := Plus(1, 2)
 		fmt.Println(num)
@@ -42,9 +82,17 @@ func main() {
 		Noreturn()
 
 
-		// 無名関数
-		f := func(x, y int) (int) {
+		// 無名関数を変数へ代入
+		f := func(x, y int) int {
 				return x + y
 		}
 		fmt.Println(f(1, 2))
+
+		// 返り値を持つ関数は一度変数に代入して使用
+		f2 := addNum()
+		fmt.Println(f2())
+		fmt.Println(f2())
+		fmt.Println(f2())
+		fmt.Println(f2())
+		fmt.Println(f2())
 }
