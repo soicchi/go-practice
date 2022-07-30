@@ -45,4 +45,15 @@ func main() {
 		fmt.Println(sl8)
 		copy(sl8, sl7)
 		fmt.Println(sl8)
+
+
+		// 可変長引数
+		sampleFunc := func(s ...int) {  // int型の引数をいくらでも受ける
+				for _, v := range s {
+						fmt.Println(v)
+				}
+		}
+		sampleFunc(1, 2, 3, 4, 5, 6, 7)
+		sl9 := []int{1, 2, 3}
+		sampleFunc(sl9...)  // スライスを展開して引数として渡す
 }
