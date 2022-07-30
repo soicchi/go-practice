@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+		"fmt"
+		"time"
+)
 
 func main() {
 		// 条件分岐
@@ -51,4 +54,23 @@ func main() {
 		}
 
 		defer sampleFunc()
+
+
+		// 並行処理
+		subRoop := func() {
+				for {
+						fmt.Println("sub roop")
+						time.Sleep(100 * time.Millisecond)
+				}
+		}
+
+		mainRoop := func() {
+				for {
+					fmt.Println("main roop")
+					time.Sleep(200 * time.Millisecond)
+				}
+		}
+		// goを実行する関数の前につけるとmainRoopと並行でsubRoopの処理も走る
+		go subRoop()
+		mainRoop()
 }
