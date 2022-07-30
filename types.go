@@ -45,4 +45,30 @@ func main() {
 		// 暗黙的な定義の場合はfloat64型になる
 		num3 := 4.5
 		fmt.Println(num3)
+
+
+		// bool型
+		var t, f bool = true, false
+		fmt.Println(t, f)
+
+
+		// string型
+		var s string = "hello go"
+		fmt.Println(s)
+		fmt.Printf("%T\n", s)
+
+		// 複数行の文字列を表示
+		fmt.Println(`test
+		test
+		test
+		`)
+
+		/*
+				string型はbyte配列の集まり
+						var s string = "Hello"
+						fmt.Println(s[0]) -> 72  バイドで表示される
+
+						先頭の文字列を取得したい場合は、string型に変換する
+						fmt.Println(string(s[0])) -> H
+		*/
 }
