@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+		"fmt"
+		"time"
+)
 
 func main() {
 		// スライス(配列と異なるのは要素数を宣言しない)
@@ -109,6 +112,28 @@ func main() {
 		sampleData := <-ch3
 		fmt.Println(sampleData)
 		fmt.Println(len(ch3))
-
 		// チャネルのデータはキュー構造になっている。つまり最初に入れたデータから取り出される
+
+
+		// チャネルとゴルーチン
+		ch4 := make(chan int)
+		ch5 := make(chan int)
+
+		reciever := func(c chan int) {
+				for {
+						i := <-c
+						fmt.Println(i)
+				}
+		}
+
+		go reciever(ch4)
+		go reciever(ch5)
+
+		i := 0
+		for i < 100 {
+				ch4 <- i
+				ch5 <- i
+				time.Sleep(100 * time.Millisecond)
+				i++
+		}
 }
