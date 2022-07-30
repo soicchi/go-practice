@@ -56,4 +56,24 @@ func main() {
 		sampleFunc(1, 2, 3, 4, 5, 6, 7)
 		sl9 := []int{1, 2, 3}
 		sampleFunc(sl9...)  // スライスを展開して引数として渡す
+
+
+		// map
+		var m = map[int]string{1: "JAPAN", 2: "USA"}
+		fmt.Println(m)
+		// 暗黙的宣言
+		m2 := map[int]string{}
+		fmt.Println(m2)
+		// 要素追加
+		m[3] = "CHINA"
+		fmt.Println(m)
+		// 要素の削除
+		delete(m, 3)
+		fmt.Println(m)
+		// 第二引数を加えると取得できたかをtrue or falseで返す
+		_, ok := m[3]
+		if !ok {
+				fmt.Println("Error")
+		}
+		fmt.Println(ok)
 }
