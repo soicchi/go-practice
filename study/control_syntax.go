@@ -24,7 +24,7 @@ func main() {
 				i++
 		}
 
-		// swicth分もあるが省略
+		// swicth文は省略
 
 
 		// 型アサーション
@@ -41,4 +41,14 @@ func main() {
 						復元できなければ、falseになりpanicにならずに処理が進む
 		*/
 
+
+		// ラベル付きforは省略
+
+
+		// defer(関数の処理が終了した時の処理を記載できる)
+		sampleFunc := func() {
+				fmt.Println("Finish!!!!")
+		}
+
+		defer sampleFunc()
 }
