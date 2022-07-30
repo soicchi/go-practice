@@ -92,4 +92,13 @@ func main() {
 
 		// 要素数の確認
 		fmt.Println(len(arr2))  // -> 2
+
+
+		// interface型（どんな型でも代入可能）
+		var x interface{}
+		fmt.Println(x)  // -> nil 初期値はnil
+
+		// どんな型のものでも代入できるが、演算はできない（interface型同士でもできない）
+		x = 2
+		// fmt.Println(x + 1)  // -> invalid operation: x + 1 (mismatched types interface{} and int)
 }
