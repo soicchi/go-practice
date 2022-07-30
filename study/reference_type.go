@@ -76,4 +76,39 @@ func main() {
 				fmt.Println("Error")
 		}
 		fmt.Println(ok)
+
+
+		// チャネル(複数のルーチン間でデータの送受信をするためのデータ構造)
+		// 送受信可能
+		var ch1 chan int
+
+		// 受信専用
+		// var ch2 <-chan int
+
+		// 送信専用
+		// var ch3 chan<- int
+
+		// チャネル生成
+		ch1 = make(chan int)
+
+		// 一気にチャネル生成
+		ch2 := make(chan int)
+		fmt.Println(cap(ch1))
+		fmt.Println(cap(ch2))
+
+		// バッファサイズを設定する(デフォルトでは0)
+		ch3 := make(chan int, 5)  // 第二引数に設定、設定しないとデータを入れることができない。
+		fmt.Println(cap(ch3))
+
+		// チャネルにデータ送信
+		ch3 <- 1
+		ch3 <- 2
+		fmt.Println(len(ch3))
+
+		// チャネルからデータを受信
+		sampleData := <-ch3
+		fmt.Println(sampleData)
+		fmt.Println(len(ch3))
+
+		// チャネルのデータはキュー構造になっている。つまり最初に入れたデータから取り出される
 }
