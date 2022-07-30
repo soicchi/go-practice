@@ -3,6 +3,7 @@ package main
 import "fmt"
 
 func main() {
+		// 算術演算子
 		// 加算
 		fmt.Println(1 + 2)
 		// 減算
@@ -21,6 +22,7 @@ func main() {
 		num++  // num + 1
 		num--  // num - 1
 
+
 		// 比較演算子
 		fmt.Println(1 == 1)  // true
 		fmt.Println(1 == 2)  // false
@@ -28,4 +30,11 @@ func main() {
 		fmt.Println(1 >= 2)  // false
 		fmt.Println(1 > 2)  // false
 		fmt.Println(1 < 2)  // true
+
+
+		// 論理演算子
+		fmt.Println(true && false == true)  // false
+		fmt.Println(true && false == false)  // true
+		fmt.Println(true || false == false)  // true
+		fmt.Println(false || false == true)  // false
 }
