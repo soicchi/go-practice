@@ -37,4 +37,12 @@ func main() {
 		// cap(スライスの容量を確認する)
 		sl6 := []int{1, 6, 9}
 		fmt.Println(cap(sl6))
+
+
+		// copy
+		sl7 := []int{9, 8, 7, 6}
+		sl8 := make([]int, 4)
+		fmt.Println(sl8)
+		copy(sl8, sl7)
+		fmt.Println(sl8)
 }
