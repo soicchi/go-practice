@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"strconv"
+)
 
 func main() {
 		// int型
@@ -29,7 +32,7 @@ func main() {
 						変数 any: 型を調べたい変数
 		*/
 
-		// 型の変換
+		// 型の変換（同類型のみ、string型→int型のようなものはできない）
 		fmt.Println(int32(num))
 
 		/*
@@ -101,4 +104,19 @@ func main() {
 		// どんな型のものでも代入できるが、演算はできない（interface型同士でもできない）
 		x = 2
 		// fmt.Println(x + 1)  // -> invalid operation: x + 1 (mismatched types interface{} and int)
+
+
+		// 型変換（string型←→int型）
+		var str string = "100"
+		fmt.Printf("str = %T\n", str)
+		// fmt.Printf("str = %T\n", int(str))  // -> cannot convert str (variable of type string) to type int
+		num6, _ := strconv.Atoi(str)
+		/*
+				strconv.Atoi()は返り値が二つある
+						1: int型に変換した値
+						2: error時のmessage
+
+						ただerror部分を使用しない場合は"_"で使用しないことを明示的に記載
+		*/
+		fmt.Printf("str = %T\n", num6)
 }
