@@ -71,4 +71,25 @@ func main() {
 						先頭の文字列を取得したい場合は、string型に変換する
 						fmt.Println(string(s[0])) -> H
 		*/
+
+
+		// 配列型（要素数を変更できない）
+		var arr1 [3]int = [3]int{1, 2, 4}
+		fmt.Println(arr1)
+		// 型を確認
+		fmt.Printf("%T\n", arr1)  // -> [3]int 要素数まで含めた型になる
+
+		// 要素数を格納した要素の数に自動的に設定する
+		arr2 := [...]string{"a", "b"}
+		fmt.Println(arr2)
+
+		// 要素を取り出す
+		fmt.Println(arr2[1])  // -> b
+
+		// 要素の更新
+		arr2[1] = "c"
+		fmt.Println(arr2)
+
+		// 要素数の確認
+		fmt.Println(len(arr2))  // -> 2
 }
