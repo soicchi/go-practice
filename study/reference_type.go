@@ -133,7 +133,46 @@ func main() {
 		for i < 100 {
 				ch4 <- i
 				ch5 <- i
-				time.Sleep(100 * time.Millisecond)
+				time.Sleep(50 * time.Millisecond)
 				i++
 		}
+
+
+
+		ch6 := make(chan int, 2)
+
+		/*
+				ch6 <- 2
+
+				チャネルをクローズする
+				close(ch6)
+
+				クローズされたチャネルにはデータを送信できない
+				ch6 <- 3
+
+				ch_num, ok := <-ch6
+				fmt.Println
+		*/
+
+		reciever2 := func(name string, ch chan int) {
+				for {
+						i, recieved := <-ch
+						if !recieved {
+								break
+						}
+						fmt.Println(name, i)
+				}
+				fmt.Println(name, "END")
+		}
+
+		go reciever2("tanaka", ch6)
+		go reciever2("sato", ch6)
+
+		i2 := 0
+		for i2 < 100 {
+				ch6 <- i2
+				i2++
+		}
+		close(ch6)
+		time.Sleep(3 * time.Second)
 }
