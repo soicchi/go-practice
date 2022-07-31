@@ -186,4 +186,7 @@ func main() {
 		for ch7Val := range ch7 {
 				fmt.Println(ch7Val)
 		}
+
+
+		// 複数のチャネルを扱う場合はselect文を使用することで柔軟に動作させることができる。
 }
