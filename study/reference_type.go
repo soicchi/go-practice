@@ -175,4 +175,15 @@ func main() {
 		}
 		close(ch6)
 		time.Sleep(3 * time.Second)
+
+
+		// チャネルでfor文を使用する場合
+		ch7 := make(chan int, 3)
+		ch7 <- 1
+		ch7 <- 2
+		ch7 <- 3
+		close(ch7)  // クローズしないとfor文でチャネルにデータがないのに呼び出しが行われdeadlockになる
+		for ch7Val := range ch7 {
+				fmt.Println(ch7Val)
+		}
 }
