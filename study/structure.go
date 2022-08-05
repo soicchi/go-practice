@@ -42,6 +42,10 @@ type Users []*User
 		}
 */
 
+
+// 独自型を生成することもできる
+type Myint int
+
 func main() {
 	// 明示的宣言
 	var user1 User = User{"sample", 20}
