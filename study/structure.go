@@ -91,4 +91,8 @@ func main() {
 	for _, v := range users {
 		fmt.Println(*v)
 	}
+
+
+	m := map[int]User{}
+	fmt.Println(m)
 }
