@@ -3,7 +3,7 @@ package main
 import "fmt"
 
 
-type stringfy interface {
+type Stringfy interface {
 		toString() string
 }
 
@@ -25,13 +25,14 @@ func (c *Car) toString() string {
 		return fmt.Sprintf("Number=%v, Model= %v", c.Number, c.Model)
 }
 
-func main() {
-		vs := []stringfy{
-				&Person{Name: "tanaka", Age: 44},
-				&Car{Number: "123455", Model: "sdf"},
-		}
+func displayString(f Stringfy) {
+		fmt.Println(f.toString())
+}
 
-		for _, v := range vs {
-				fmt.Println(v.toString())
-		}
+func main() {
+		person := &Person{Name: "sample", Age: 33}
+		car := &Car{Number: "1234", Model: "4856"}
+
+		displayString(person)
+		displayString(car)
 }
