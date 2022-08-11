@@ -1,4 +1,4 @@
-package study
+package main
 
 import "fmt"
 
@@ -7,12 +7,12 @@ const Pi = 3.14
 
 // 複数定義
 const (
-		a = iota  // iotaは後続する定数に0から始まる連続する数値を入れてくれる
-		b
-		c
+	a = iota // iotaは後続する定数に0から始まる連続する数値を入れてくれる
+	b
+	c
 )
 
 func PrintConstant() {
-		fmt.Println(Pi)
-		fmt.Println(a, b, c)  // -> 0 1 2
+	fmt.Println(Pi)
+	fmt.Println(a, b, c) // -> 0 1 2
 }
