@@ -1,4 +1,4 @@
-package main
+package study
 
 import "fmt"
 
@@ -12,7 +12,7 @@ const (
 		c
 )
 
-func main() {
+func PrintConstant() {
 		fmt.Println(Pi)
 		fmt.Println(a, b, c)  // -> 0 1 2
 }
