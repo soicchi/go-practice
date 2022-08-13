@@ -12,7 +12,7 @@ services:
     user: root
     volumes:
       - ./db:/var/www/postgres
-  web:
+  web2:
     build:
       context: .
     working_dir: /app
